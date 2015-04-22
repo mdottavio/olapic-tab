@@ -45,7 +45,7 @@ function insertPost(){
         post = settings.posts[rId];
         theImg.onload = function ( ) { 
             document.getElementById('caption').innerHTML = post['photo-caption']||'';
-            document.getElementById('imgWrapper').innerHTML = '<img src="'+post['photo-url-400']+'" id="theImg" />';
+            document.getElementById('imgWrapper').innerHTML = '<a href="'+post['photo-link-url']+'" ><img src="'+post['photo-url-400']+'" id="theImg" /></a>';
             changeBg(rId, function(){
                 localStorage.setItem('settings', JSON.stringify(settings));
             });

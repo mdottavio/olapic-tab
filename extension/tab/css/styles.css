@@ -24,10 +24,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 #imgWrapper{
+  background: url(../img/olapic_loading_white_32.gif);
   height: 100%;
   position: relative;
   width: 100%;
-  background-size: contain;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   max-height: 400px;
