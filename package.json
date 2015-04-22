@@ -2,9 +2,9 @@
   "name": "olapic-tab-server",
   "version": "0.0.1",
   "description": "Simple server",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node server/server.js"
   },
   "dependencies": {
     "request": "^2.55.0",
