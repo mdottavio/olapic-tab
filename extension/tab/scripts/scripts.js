@@ -13,7 +13,7 @@ settings = JSON.parse(settings);
 // 1h cache
 if((now - settings.lastCheck) > 216000){
     //we should check the posts again...
-    require('http://photorank-best.tumblr.com/api/read/json', function(){
+    require('https://olapic-tab-server.herokuapp.com/', function(){
         console.log(tumblr_api_read);
         settings.lastCheck = now;
         settings.posts = tumblr_api_read.posts;

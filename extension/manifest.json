@@ -10,6 +10,6 @@
   "default_locale": "en",
   "chrome_url_overrides": {
     "newtab": "tab/index.html"
-  }
-
+  },
+  "content_security_policy": "script-src 'self' https://olapic-tab-server.herokuapp.com; object-src 'self'"
 }
