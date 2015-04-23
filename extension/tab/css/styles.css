@@ -1,11 +1,12 @@
 body {
   font-family: 'Roboto' !important;
   /*background-color: #222;*/
+  background-size: 100% auto !important;
   color: #fff;
 }
 .container {
   width: 400px;
-  margin: 8% auto 0 auto;
+  margin: 6% auto 0 auto;
 }
 .flipper{
 
@@ -31,4 +32,30 @@ body {
   background-position: 50% 50%;
   background-repeat: no-repeat;
   max-height: 400px;
+}
+#blurbg{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  -webkit-filter: blur(10px);
+  background-size: 100% auto !important;
+  top: 0px;
+  left: 0px;
+  background-repeat: no-repeat;
+  background-position: 0% 50%;
+}
+.olapic{
+  opacity: 0;
+  transition: opacity .75s ease-in-out;
+  position: absolute;
+  bottom: 9px;
+  right: 9px;
+  background: url(../img/olapic.png);
+  background-size: contain;
+  background-position: 50% 50%;
+  width: 35px;
+  height: 35px;
+}
+.done .olapic{
+  opacity: 1;
 }

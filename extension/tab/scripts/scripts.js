@@ -25,13 +25,17 @@ if((now - settings.lastCheck) > 216000){
     insertPost();
 }
 
-function changeBg(id, callback){
+function changeBg(id, post, callback){
     if(!settings.posts[id].colors){
         settings.posts[id].colors = Colibri.extractImageColors( theImg, 'css' );
     }
     theBgStyles = 'linear-gradient(to bottom left, '+settings.posts[id].colors.background+', rgb(246,242,241) )';
     document.body.style.background = theBgStyles;
     callback();
+}
+function creatImg(post){
+    document.getElementById('caption').innerHTML = post['photo-caption']||'';
+    document.getElementById('imgWrapper').innerHTML = '<a href="'+post['photo-link-url']+'" ><img src="'+post['photo-url-400']+'" id="theImg" /></a>';
 }
 function insertPost(){
     var post, 
@@ -43,13 +47,22 @@ function insertPost(){
         }
         sessionIds.push( rId );
         post = settings.posts[rId];
-        theImg.onload = function ( ) { 
-            document.getElementById('caption').innerHTML = post['photo-caption']||'';
-            document.getElementById('imgWrapper').innerHTML = '<a href="'+post['photo-link-url']+'" ><img src="'+post['photo-url-400']+'" id="theImg" /></a>';
-            changeBg(rId, function(){
+        theImg.onload = function ( ) {
+            creatImg(post); 
+            if(!settings.posts[rId].colors){
+                changeBg(rId, post, function(){
+                    localStorage.setItem('settings', JSON.stringify(settings));
+                });
+            }
+            document.getElementById('blurbg').style.backgroundImage = 'url("'+post['photo-url-400']+'")';
+            document.body.className = 'done';
+        };
+        if(settings.posts[rId].colors){
+            changeBg(rId, post, function(){
                 localStorage.setItem('settings', JSON.stringify(settings));
             });
         };
+
         theImg.onerror = function(){
             insertPost();
         };
