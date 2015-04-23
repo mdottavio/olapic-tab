@@ -59,3 +59,4 @@ body {
 .done .olapic{
   opacity: 1;
 }
+.olapic a{ display: block; width: 100%; height: 100%; }
